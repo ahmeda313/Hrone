@@ -6,7 +6,7 @@ function saveImage(formData){
     const extention = formData.image.split(',')[0].split(';')[0].split('/')[1]
     const filename = `${formData.userName.replaceAll(" ","")}-${formData.id}.${extention}`
 
-    const stream = fs.createWriteStream(`public/images/${filename}`)
+    const stream = fs.createWriteStream(`./public/images/${filename}`)
     const bufferImage = Buffer.from(base64Image,"base64")
 
     stream.write(bufferImage, (error)=>{
