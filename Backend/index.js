@@ -154,7 +154,6 @@ app.patch("/updateEmployee/:id",authMiddleware,async(req,res)=>{
 
     const errors = updateDetailsValidation(formData)
 
-
     if(errors.length>0){
         res.send({errors})
     }else{

@@ -22,7 +22,7 @@ function employeeDetailsValidation(formData){
       if(key==="email" && !value.includes("@") && !value.includes(".")){
         errors.push("email")
       }
-      if(key!=="course"&& key!=="image" &&value.trim()===""){
+      if(key!=="course" && value.trim()===""){
         errors.push(key)
       }
       if(key==="course" && !Array.isArray(value)){
@@ -40,7 +40,7 @@ function updateDetailsValidation(formData){
         if(key==="email" && !value.includes("@") && !value.includes(".")){
           errors.push("email")
         }
-        if(key!=="course"&& key!=="image"&& value.trim()===""){
+        if(key!=="course"&&  key!=="image" && value.trim()===""){
           errors.push(key)
         }
         if(key==="course" && !Array.isArray(value)){
