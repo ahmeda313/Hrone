@@ -18,7 +18,7 @@ export default function SingleEmployee({id, image, name, email, mobilenum, desig
     return(
         <tr className="hover:bg-gray-300">
             <td className="border border-black p-2">{id}</td>
-            <td className="border border-black p-2"><img className="max-h-20 aspect-auto" src={`http://localhost:3000/${image}`} alt="ahmed" /></td>
+            <td className="border border-black p-2"><img className="max-h-20 aspect-auto" src={`${import.meta.env.VITE_API_URL}/${image}`} alt={name} /></td>
             <td className="border border-black p-2">{name}</td>
             <td className="border border-black p-2">{email}</td>
             <td className="border border-black p-2">{mobilenum}</td>

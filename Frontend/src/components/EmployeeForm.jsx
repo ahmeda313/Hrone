@@ -169,7 +169,7 @@ export default function EmployeeForm({method, update}) {
               </label>
               <div className="mt-2 flex items-center gap-x-3">
                 <div className="border border-black h-24 w-20">
-                  {(pickedImage || update) && <img src={update && data && data.image ? `http://localhost:3000/${data.image}`:pickedImage} alt="selected image" />}
+                  {(pickedImage || update) && <img src={update && data && data.image ? `${import.meta.env.VITE_API_URL}/${data.image}`:pickedImage} alt="selected image" />}
                   <input type="file" name="image" ref={inputRef} accept="image/jpeg, image/png, image/jpg" onChange={imageInputChange}  hidden required={!update}/>
                 </div>
                 <button
@@ -305,9 +305,9 @@ export async function action({request, params}){
   }
 
 
-  let URL = "http://localhost:3000/createEmployee"
+  let URL = import.meta.env.VITE_API_URL+"/createEmployee"
   if(request.method==="PATCH"){
-    URL = "http://localhost:3000/updateEmployee/"+params.id
+    URL = import.meta.env.VITE_API_URL+"/updateEmployee/"+params.id
   }
 
   const res = await fetch(URL,{
@@ -337,7 +337,7 @@ export async function action({request, params}){
 
 
 export async function loader({params}){
-  const res = await fetch("http://localhost:3000/getEmployee/"+params.id,{
+  const res = await fetch(import.meta.env.VITE_API_URL+"/getEmployee/"+params.id,{
     credentials:"include"
   })
 

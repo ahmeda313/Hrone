@@ -98,7 +98,7 @@ export async function action({params, request}){
 
   // console.log(formToJSON)
 
-  const res = await fetch("http://localhost:3000/login",{
+  const res = await fetch(import.meta.env.VITE_API_URL/+"/login",{
     method:"POST",
     credentials: 'include',
     body:JSON.stringify(formToJSON),

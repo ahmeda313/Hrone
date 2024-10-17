@@ -1,6 +1,6 @@
-import { useLoaderData, Await, defer, redirect, useNavigate, Link, useParams, json, NavLink } from "react-router-dom";
+import { useLoaderData, Await, defer, redirect, useNavigate, Link, useParams} from "react-router-dom";
 import SingleEmployee from "./SingleEmployee";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Loading from "./Loading";
 import { useSearch } from "../../useSearch";
 
@@ -70,8 +70,8 @@ export default function EmployeeList(){
 }
 
 async function getData(page){
-        // await new Promise(resolve=>setTimeout(resolve,1000))
-        const res = await fetch(`http://localhost:3000/employeeList?page=${page}`,{
+        
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/employeeList?page=${page}`,{
             credentials:"include"
         })
         if(!res.ok){
@@ -102,7 +102,7 @@ export async function action({request, params}){
     const [id] = [...body.entries()]
     console.log(id[1])
 
-    const res = await fetch("http://localhost:3000/deleteEmployee/"+id[1],{
+    const res = await fetch(import.meta.env.VITE_API_URL+"/deleteEmployee/"+id[1],{
         method:"DELETE",
         credentials:"include"
     })

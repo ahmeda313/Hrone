@@ -1,6 +1,5 @@
-import { Outlet, useLoaderData, useNavigation } from "react-router-dom"
+import { Outlet, useNavigation } from "react-router-dom"
 import Navbar from "./Navbar"
-import { useState } from "react"
 import Loading from "./Loading"
 
 export default function RootLayout(){

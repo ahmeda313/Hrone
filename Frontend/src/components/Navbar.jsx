@@ -1,4 +1,4 @@
-import { NavLink, redirect, useResolvedPath, useRouteLoaderData, useSubmit } from "react-router-dom";
+import { NavLink, redirect, useResolvedPath, useSubmit } from "react-router-dom";
 
 
 const name = localStorage.getItem("userName")
@@ -50,7 +50,7 @@ export default function Navbar(){
 }
 
 export async function action({request}){
-    const resData = await fetch("http://localhost:3000/logout",{
+    const resData = await fetch(import.meta.env.VITE_API_URL+"/logout",{
         method:request.method,
         credentials:"include"
     })
