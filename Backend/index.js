@@ -68,7 +68,7 @@ app.post("/login",async(req,res)=>{
         res.cookie("token", token,{
             httpOnly: true,  // Prevents client-side JavaScript from accessing the cookie
             // secure: true,    // Use this only with HTTPS
-            sameSite: "strict", // Helps mitigate CSRF attacks
+            sameSite: "none", // Helps mitigate CSRF attacks
 
         })
 
@@ -86,7 +86,7 @@ app.post('/logout', (req, res) => {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.cookie('token', '', {
         httpOnly: true,   // Same as how it was set originally
-        sameSite: 'strict', // Same setting as when the cookie was created
+        sameSite: 'none', // Same setting as when the cookie was created
         expires: new Date(0)  // Setting an expired date (epoch)
       });
 
