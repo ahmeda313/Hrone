@@ -169,7 +169,7 @@ export default function EmployeeForm({method, update}) {
               </label>
               <div className="mt-2 flex items-center gap-x-3">
                 <div className="border border-black h-24 w-20">
-                  {(pickedImage || update) && <img src={update && data && data.image ? `${import.meta.env.VITE_API_URL}/${data.image}`:pickedImage} alt="selected image" />}
+                  {(pickedImage || update) && <img src={update && data && data.image ? `${import.meta.env.VITE_API_URL}/public${data.image}`:pickedImage} alt="selected image" />}
                   <input type="file" name="image" ref={inputRef} accept="image/jpeg, image/png, image/jpg" onChange={imageInputChange}  hidden required={!update}/>
                 </div>
                 <button
