@@ -3,9 +3,16 @@ const express = require("express")
 const cors = require("cors")
 const {loginValidation, employeeDetailsValidation, updateDetailsValidation} = require("./validation")
 const {loginCheck, getAllEmployees, deleteEmployee, getEmployee, createNewEmployee, updateEmployee, getEmployeesCount, searchEmployee} = require("./db")
-const {saveImage, deleteImage} = require("./utils")
+
 const jwt = require("jsonwebtoken")
+const cloudinary = require("cloudinary").v2
 require('dotenv').config();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const JWT_SECRET = process.env.SECRET
 
@@ -16,11 +23,10 @@ app.use(cors({
     origin: ['http://localhost:5173',"https://hrone-76bt.vercel.app"],  // Frontend URL
     credentials: true  // Allow cookies to be sent
 }))
+
+
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
-
-
-app.use(express.static('public'))
 
 
 function authMiddleware(req,res,next){
@@ -101,8 +107,7 @@ app.delete("/deleteEmployee/:id",authMiddleware,async(req,res)=>{
     const id = req.params.id
     
     const result = await deleteEmployee(id)
-    
-    deleteImage(id)    
+       
     res.send({success:true})
 })
 
@@ -118,7 +123,9 @@ app.post("/createEmployee",authMiddleware,async(req, res)=>{
     }else{
         formData.id = (Math.random()*10000000).toFixed()
 
-        formData.image = saveImage(formData)
+        const uploadRes = await cloudinary.uploader.upload(formData.image,{})
+        
+        formData.image = uploadRes.secure_url
 
         formData.course = formData.course.join()
 
@@ -153,7 +160,11 @@ app.patch("/updateEmployee/:id",authMiddleware,async(req,res)=>{
     }else{
         if(formData.image){
             formData.id = id
-            formData.image = saveImage(formData)
+
+            const uploadRes = await cloudinary.uploader.upload(formData.image,{})
+        
+            formData.image = uploadRes.secure_url
+
         }else{
             const employee = await getEmployee(id)
         
