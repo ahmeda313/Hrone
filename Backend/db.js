@@ -5,7 +5,7 @@ const sql = neon(process.env.DATABASE_URL)
 
 
 async function getAllEmployees(startAt){
-    const result = await sql("SELECT * FROM employees LIMIT 2 OFFSET $1",[startAt])
+    const result = await sql("SELECT * FROM employees LIMIT 4 OFFSET $1",[startAt])
     return result
 }
 

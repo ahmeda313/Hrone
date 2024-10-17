@@ -41,7 +41,7 @@ function authMiddleware(req,res,next){
 
 app.get("/employeeList",authMiddleware,async(req, res)=>{
     // items per page 2
-    const page = (req.query.page-1)*2
+    const page = (req.query.page-1)*4
     const result = await getAllEmployees(page)
     const totalEmployees = await getEmployeesCount()
 

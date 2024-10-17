@@ -6,7 +6,7 @@ export default function LoginPage(){
   const navigation = useNavigation()
 
     return(
-    <main className="h-3/5">
+    <main className="mt-24 sm:mt-5  h-3/5">
 
       <div className="min-h-full mt-5 sm:flex flex-1 flex-col justify-center px-6  lg:px-8">
         <div className="sm:mx-auto w-full sm:max-w-sm">

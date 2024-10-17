@@ -23,17 +23,17 @@ export default function EmployeeList(){
         <Await resolve={fetchedData.result?.length>0?fetchedData:resData}>
             {(data)=>(
         <>
-        <div className="mx-auto w-5/6 mt-5 sm:mt-8 flex justify-between gap-2">
-            <div className="space-y-4">
+        <div className="mx-auto w-5/6 mt-10 sm:mt-12 flex justify-between gap-2">
+            <div className="space-y-6">
                 <h1 className="text-2xl"> Employees</h1>
                 <button onClick={()=>navigate("/addEmployee")} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Add employee</button>
             </div>
-            <div className="w-1/2 sm:w-1/3">
+            <div className="w-1/2 sm:w-1/3 space-y-12">
                 <input type="search" placeholder="Search" className="w-full px-2 sm:mx-5 rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:p-1 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" onChange={searchFunction}/>
                 <h1 className="mt-4">Total employees <span className="font-semibold">{data.count || data.result.length}</span></h1>
             </div>
         </div>
-        <div className="mx-auto w-5/6 p-1 overflow-x-scroll lg:overflow-hidden">
+        <div className="mt-5 mx-auto w-5/6 p-1 overflow-x-scroll lg:overflow-hidden">
         <table className="m-2 mx-auto border border-black w-full shadow-lg shadow-black">
         <thead>
             <tr>
@@ -56,11 +56,11 @@ export default function EmployeeList(){
         </tbody>
         </table>
         </div> 
-        <div className="flex justify-center gap-3 mt-5 sm:mt-8">
+        <div className="absolute w-full sm:bottom-10 flex justify-center gap-3 mt-8">
             
-            {+page>1 ? <Link to={`/allEmployees/${+page-1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</Link>:<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</button>}
+            {+page>1 ? <Link to={`/allEmployees/${+page-1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</Link>:<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</button>}
             
-            {+page<Math.ceil(+data.count/2) ? <Link to={`/allEmployees/${+page+1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</Link> :<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</button>}
+            {+page<Math.ceil(+data.count/4) ? <Link to={`/allEmployees/${+page+1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</Link> :<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</button>}
         </div>
         </>)}
         </Await>

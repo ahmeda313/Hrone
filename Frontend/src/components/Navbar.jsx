@@ -37,12 +37,12 @@ export default function Navbar(){
             </>}
         </nav>
         {path.pathname!=="/" &&
-        <ul className="pb-2 flex justify-around bg-emerald-800 sm:hidden p-1 font-semibold text-sm text-white">
-            <li className="mt-1">
-                <NavLink to="/dashboard" className={({isActive})=>isActive?"p-1 hover:bg-emerald-700 rounded-md bg-emerald-700":"p-1 hover:bg-emerald-700 rounded-md "}> Home</NavLink>
+        <ul className="p-3 flex justify-around bg-emerald-800 sm:hidden font-semibold text-sm text-white">
+            <li className="mt-1 w-1/2 text-center">
+                <NavLink to="/dashboard" className={({isActive})=>isActive?"p-2 hover:bg-emerald-700 rounded-md bg-emerald-700":"p-2 hover:bg-emerald-700 rounded-md "}> Home</NavLink>
             </li>
-            <li className="mt-1">
-                <NavLink to="/allEmployees/1" className={({isActive})=>isActive?"p-1 hover:bg-emerald-700 rounded-md  bg-emerald-700":"p-1 hover:bg-emerald-700 rounded-md"}> Employee list</NavLink>
+            <li className="mt-1 w-1/2 text-center">
+                <NavLink to="/allEmployees/1" className={({isActive})=>isActive?"p-2 hover:bg-emerald-700 rounded-md bg-emerald-700":"p-2 hover:bg-emerald-700 rounded-md"}> Employee list</NavLink>
             </li>
         </ul>}
         </>
