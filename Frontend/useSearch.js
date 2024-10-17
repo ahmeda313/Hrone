@@ -11,7 +11,7 @@ export function useSearch(){
         }
         const searchQuery = setTimeout(async()=>{
             
-            const res = await fetch("http://localhost:3000/search?v="+value,{
+            const res = await fetch(import.meta.env.VITE_API_URL+"/search?v="+value,{
                 credentials:"include"
             })
             const resData = await res.json()
