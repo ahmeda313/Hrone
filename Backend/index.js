@@ -13,7 +13,7 @@ const JWT_SECRET = process.env.SECRET
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:5173',  // Frontend URL
+    origin: ['http://localhost:5173',"https://hrone-76bt.vercel.app"],  // Frontend URL
     credentials: true  // Allow cookies to be sent
 }))
 app.use(express.json({ limit: '10mb' }))
