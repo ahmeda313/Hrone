@@ -100,8 +100,7 @@ export async function loader({params}){
 export async function action({request, params}){
     const body = await request.formData()
     const [id] = [...body.entries()]
-    console.log(id[1])
-
+    
     const res = await fetch(import.meta.env.VITE_API_URL+"/deleteEmployee/"+id[1],{
         method:"DELETE",
         credentials:"include"

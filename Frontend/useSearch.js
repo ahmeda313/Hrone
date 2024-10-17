@@ -16,8 +16,7 @@ export function useSearch(){
             })
             const resData = await res.json()
 
-            console.log(resData)
-
+            
             const searchRes = {} 
             searchRes.result = resData
     
