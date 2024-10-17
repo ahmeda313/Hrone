@@ -56,7 +56,7 @@ export default function EmployeeList(){
         </tbody>
         </table>
         </div> 
-        <div className="absolute w-full sm:bottom-10 flex justify-center gap-3 mt-8">
+        <div className="flex justify-center gap-3 mt-8">
             
             {+page>1 ? <Link to={`/allEmployees/${+page-1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</Link>:<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</button>}
             
