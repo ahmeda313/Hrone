@@ -1,14 +1,14 @@
 import { NavLink, redirect, useResolvedPath, useSubmit } from "react-router-dom";
 
 
-const name = localStorage.getItem("userName")
 export default function Navbar(){
+    const name = localStorage.getItem("userName")
     const submit = useSubmit()
     const path = useResolvedPath()
     
 
     function logOutFn(){
-        localStorage.removeItem("useName")
+        localStorage.removeItem("userName")
         submit(null, {method:"POST"})
     }
     return(

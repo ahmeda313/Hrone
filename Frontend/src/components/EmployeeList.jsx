@@ -41,11 +41,11 @@ export default function EmployeeList(){
                 <th className="text-left border border-black p-2">Image</th>
                 <th className="text-left border border-black p-2">Name</th>
                 <th className="text-left border border-black p-2">E-mail</th>
-                <th className="text-left border border-black p-2">Mobile number</th>
+                <th className="text-left border border-black p-2 whitespace-nowrap">Mobile number</th>
                 <th className="text-left border border-black p-2">Designation</th>
                 <th className="text-left border border-black p-2">Gender</th>
                 <th className="text-left border border-black p-2">Course</th>
-                <th className="text-left border border-black p-2">Creation date</th>
+                <th className="text-left border border-black p-2 whitespace-nowrap">Creation date</th>
                 <th className="text-left border border-black p-2">Action</th>
             </tr>
         </thead>
@@ -56,11 +56,11 @@ export default function EmployeeList(){
         </tbody>
         </table>
         </div> 
-        <div className="pb-4 flex justify-center gap-3 mt-8">
+        <div className="pb-4 flex justify-center gap-5 mt-8">
             
-            {+page>1 ? <Link to={`/allEmployees/${+page-1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</Link>:<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</button>}
+            {+page>1 ? <Link to={`/allEmployees/${+page-1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-3 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</Link>:<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-3 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{"<<"}</button>}
             
-            {+page<Math.ceil(+data.count/4) ? <Link to={`/allEmployees/${+page+1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</Link> :<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-2 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</button>}
+            {+page<Math.ceil(+data.count/4) ? <Link to={`/allEmployees/${+page+1}`} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-3 sm:px-3 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</Link> :<button disabled className="rounded-md bg-emerald-800 disabled:cursor-not-allowed p-3 sm:px-3 sm:py-2 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{">>"}</button>}
         </div>
         </>)}
         </Await>

@@ -64,6 +64,8 @@ export default function LoginPage(){
                 {navigation.state==="idle"?"Sign in":"Signing in..."}
               </button>
             </div>
+
+            <p className="text-center mt-10 text-sm italic text-emerald-700">use  test123 as username and  test@123 as password</p>
           </Form>
         </div>
       </div>
