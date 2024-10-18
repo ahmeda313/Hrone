@@ -10,9 +10,9 @@ export default function EmployeeList(){
     const {resData} = useLoaderData()
     const navigate = useNavigate()
     const  { page } = useParams()
-    const {setValue, fetchedData} = useSearch()
+    const {setValue, loading, fetchedData} = useSearch()
    
-
+    console.log(loading)
     function searchFunction(e){
         setValue(e.target.value)
     }
@@ -26,14 +26,14 @@ export default function EmployeeList(){
         <div className="mx-auto w-5/6 mt-10 sm:mt-12 flex justify-between gap-2">
             <div className="space-y-6">
                 <h1 className="text-2xl"> Employees</h1>
-                <button onClick={()=>navigate("/addEmployee")} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-1 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Add employee</button>
+                <button onClick={()=>navigate("/addEmployee")} className="rounded-md bg-emerald-800 disabled:cursor-not-allowed px-2 sm:px-3 py-1 sm:py-1.5 text-sm sm:text-md font-bold leading-6 text-white shadow-sm hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Add employee</button>
             </div>
             <div className="w-1/2 sm:w-1/3 space-y-12">
                 <input type="search" placeholder="Search" className="w-full px-2 sm:mx-5 rounded-md border-0 p-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:p-1 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" onChange={searchFunction}/>
                 <h1 className="mt-4">Total employees <span className="font-semibold">{data.count || data.result.length}</span></h1>
             </div>
         </div>
-        <div className="mt-5 mx-auto w-5/6 p-1 overflow-x-scroll lg:overflow-hidden">
+        <div className={`mt-5 mx-auto w-5/6 p-1 overflow-x-scroll lg:overflow-hidden ${loading?"opacity-80":""}`}>
         <table className="m-2 mx-auto border border-black w-full shadow-lg shadow-black">
         <thead>
             <tr>
